@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 
-/**
- * Using the standard ListView constructor is perfect for lists that contain only a few items.
+
+/* * Using the standard ListView constructor is perfect for lists that contain only a few items.
  *
  * use this inside body:=>
  *
@@ -21,9 +21,8 @@ import 'package:flutter/material.dart';
     title: Text('Phone'),
     ),
     ],
-    );
- *
- */
+    );*/
+
 
 
 class BasicListPage extends StatefulWidget{
@@ -63,3 +62,4 @@ class BasicListPageState extends State<BasicListPage>{
   }
 
 }
+

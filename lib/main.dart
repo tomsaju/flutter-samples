@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:startup_namer/pages/BasicListPage.dart';
+import 'package:startup_namer/pages/NavigationDrawerPage.dart';
 
 void main() => runApp(new MyApp());
 
@@ -86,6 +87,7 @@ class RandomWordsState extends State<RandomWords> {
   void _pushTests() {
 _topicsList.add("Hello World");
 _topicsList.add("Basic list");
+_topicsList.add("Navigation drawer");
 
     Navigator.of(context).push(
       new MaterialPageRoute(
@@ -152,7 +154,15 @@ _topicsList.add("Basic list");
     );
   }
 
-
+void _pushNavDrawerPage(){
+    Navigator.of(context).push(
+      new MaterialPageRoute(
+          builder:(context){
+            return new NavigationDrawerPage();
+          },
+      ),
+    );
+}
 
 
 
@@ -204,6 +214,8 @@ _topicsList.add("Basic list");
       _pushFirstTest();
     }else if(topic=="basic list"){
       _pushBasicListPage();
+    }else if(topic=="navigation drawer"){
+      _pushNavDrawerPage();
     }
   }
 
