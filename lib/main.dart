@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:startup_namer/pages/BasicListPage.dart';
 import 'package:startup_namer/pages/NavigationDrawerPage.dart';
-
+import 'package:startup_namer/pages/AdvancedDrawerPage.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -15,6 +15,12 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white,
       ),
       home: new RandomWords(),
+      routes: <String,WidgetBuilder>{
+        '/basiclistpage' : (BuildContext context) =>new BasicListPage(),
+        '/navigationdrawerpage' : (BuildContext context) =>new NavigationDrawerPage(),
+        '/navigationdrawerpage2' : (BuildContext context) =>new AdvancedDrawerPage(),
+
+      },
       );
 
     }
@@ -88,6 +94,7 @@ class RandomWordsState extends State<RandomWords> {
 _topicsList.add("Hello World");
 _topicsList.add("Basic list");
 _topicsList.add("Navigation drawer");
+_topicsList.add("Navigation drawer 2");
 
     Navigator.of(context).push(
       new MaterialPageRoute(
@@ -143,26 +150,7 @@ _topicsList.add("Navigation drawer");
     );
   }
 
-  void _pushBasicListPage() {
 
-    Navigator.of(context).push(
-      new MaterialPageRoute(
-        builder: (context) {
-          return new BasicListPage();
-        },
-      ),
-    );
-  }
-
-void _pushNavDrawerPage(){
-    Navigator.of(context).push(
-      new MaterialPageRoute(
-          builder:(context){
-            return new NavigationDrawerPage();
-          },
-      ),
-    );
-}
 
 
 
@@ -213,9 +201,11 @@ void _pushNavDrawerPage(){
     if(topic=="hello world"){
       _pushFirstTest();
     }else if(topic=="basic list"){
-      _pushBasicListPage();
+      Navigator.of(context).pushNamed('/basiclistpage');
     }else if(topic=="navigation drawer"){
-      _pushNavDrawerPage();
+      Navigator.of(context).pushNamed('/navigationdrawerpage');
+    }else if(topic=="navigation drawer 2"){
+      Navigator.of(context).pushNamed('/navigationdrawerpage2');
     }
   }
 
